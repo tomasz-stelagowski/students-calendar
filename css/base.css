@@ -1,0 +1,367 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+  /* width:100px; */
+	height: 100px; 
+  background: -webkit-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #16222A 10%, #3A6073 90%); /* W3C */
+	font-family: 'Raleway', sans-serif;
+}
+
+.middlePage {
+	position: absolute;
+	width: 680px;
+  height: 500px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.my_task-done {
+  position: relative;
+}
+
+.my_task-done:before {
+	content: "\e013";
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: bold;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	
+	color: green;
+
+  z-index: 10;
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 50%;
+  left: 50%;
+  margin-top: -7px;
+  margin-left: -10px;
+}
+.my_task-done:after {
+  content: " ";
+  z-index: 9;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 255, 0, 0.8);
+}
+.my_task-done:hover:before {
+	display: none;
+}
+.my_task-done:hover:after {
+	display: none;
+}
+
+.my_container {
+	height: 750px;
+}
+
+.my_call-nav {
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.my_call-body{
+}
+
+.my_days-labels{
+	padding-left: 40px;
+	font-weight: bold;
+}
+
+.my_days{
+	display: block;
+	padding-left: 40px;
+	overflow-y: hidden;
+}
+
+.my_day{
+	width: 16%;
+	display: block;
+	float: left;	
+}
+.my_day:nth-child(n+6){
+	width: 10%;
+}
+.my_day:first-child{
+}
+.my_day div{
+	width: 100%;
+	display: block;
+}
+
+.my_list-panel{
+	position: relative;
+}
+
+.my_dropday-trigger{
+	display: none;
+}
+.my_list-panel label{
+	display: inline;
+	margin: 0px;
+	font-weight: initial;
+}
+.my_top-label{
+	height: 20px;
+	border-top: 1px solid;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	position: relative;
+	cursor: pointer;
+}
+
+.my_day:last-child .my_top-label{
+	border-right: 1px solid;
+}
+
+.my_top-label:after{
+	content: "\e259";
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: bold;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	position: absolute;
+	right: 0;
+	margin-right: 5px;
+	margin-top: 2px;
+}
+
+.my_dropdown{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin-top: -630px;
+	border: 1px solid;
+	background-color: #f5f5f5;
+	/* display: none !important; */
+	z-index: 10;
+	transition: margin-top 1s;
+}
+.my_dropday-trigger:checked ~ .my_dropdown{
+	margin-top: 0px;
+}
+
+.my_task-area{
+	height: 609px;
+	overflow: auto;
+	padding-top: 15px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.my_task-checkbox{
+	float: left;
+	opacity: 0;
+	cursor: pointer;
+}
+.my_task-checkbox + label{
+	float: left;
+	height: 17px;
+	width: 17px;
+	display: inline-block;
+	margin-left: -13px;
+	margin-bottom: 0px;
+	padding-top: 2px;
+}
+.my_task-checkbox + label:after{
+	content: " ";
+	display: inline-block;
+}
+.my_task-checkbox:checked + label:before{
+	content: " ";
+}
+.my_task-checkbox + label:before{
+	content: "\e157";
+	color: gray;
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.my_task:hover .my_task-checkbox:checked + label:before{
+	content: "\e067";
+	color: green;
+	font-style: bold;
+}
+.my_task > .my_task-done-fade {
+    display: none;
+    position: absolute;
+    height: 100%;
+    content: " ";
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 255, 0, 0.8);
+}
+
+.my_task-done-fade:before {
+    content: "\e013";
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: bold;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: green;
+    z-index: 10;
+    display: block;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -7px;
+    margin-left: -10px;
+}
+
+.my_task-checkbox:checked ~ .my_task-done-fade{
+	display: block;
+}
+.my_task:hover > .my_task-done-fade{
+	display: none;
+}
+
+.my_task-content{
+	padding: 0px 0px 0px 2px;
+	border-right: solid 2px rgba(0, 0, 0, 0);
+	word-wrap: break-word;
+}
+
+.my_task{
+	position: relative;
+	border: 1px solid;
+	padding-left: 1px;
+	border-radius: 2px;
+	min-height: 30px;
+	margin-bottom: 5px;
+}
+
+.my_task-type-1{
+
+}
+.my_task-type-2{
+	
+}
+.my_task-type-3{
+	
+}
+.my_task-type-4{
+	
+}
+
+.my_bottom-label{
+	height: 20px;
+	border-top: 1px solid;
+	position: relative;
+	bottom: 0px;
+	cursor: pointer;
+}
+.my_bottom-label:after{
+	content: "\e260";
+	display: inline-block;
+	font-family: 'Glyphicons Halflings';
+	font-style: bold;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	position: absolute;
+	right: 0;
+	margin-right: 5px;
+	margin-top: 2px;
+}
+
+.my_grid{
+	border: 1px;
+	border-style: solid;
+	border-right-style: none;
+	
+	height: inherit;
+	
+	counter-reset: hour_count 6;
+}
+.my_day:last-child .my_grid{
+	border-right-style: solid;
+}
+
+.my_hour{
+	border: 1px;
+	border-bottom-style: solid;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	position: relative;
+}
+
+.my_hour:last-child{
+	border: none;
+}
+
+.my_quater{
+	height: 10px;
+
+	border: 0.5px;
+	border-bottom-style: dashed;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+
+.my_quater:last-child {
+	border: none;
+}
+
+/* hour numeration */
+
+.my_day:first-child .my_hour:before{
+	counter-increment: hour_count;
+	content: counter(hour_count) ":00";
+	position: absolute;
+	display: inline-block;
+
+	font-weight: bold;
+	text-align: right;
+	width: 35px;
+
+	margin-top: 5px;
+	margin-left: -40px;
+}
+.my_day:first-child .my_hour:not(:last-child) .my_quater:last-child:before{
+	content: " ";
+	width: 30px;
+	position: absolute;
+	margin-left: -30px;
+	margin-top: 10px;
+	border-top: 1px solid;
+}
+
+
+

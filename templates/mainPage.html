@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href=".\css\base.css">
+	<link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.css">
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<script src="bower_components\jquery\dist\jquery.js"></script>
+	<script src="bower_components\underscore\underscore.js"></script>
+	<script src="bower_components\backbone\backbone.js"></script>
+	<script src="bower_components\bootstrap\dist\js\bootstrap.js"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Kalendarz Akademicki</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Home</a></li>
+	      <li><a href="#">Page 1</a></li>
+	      <li><a href="#">Page 2</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container_fluid" style="margin-top: 80px">
+		<div class="row">
+			<div class="col-md-9 col-sm-9">
+				<div class="well my_container">
+					<div class="my_call-nac"></div>
+					<div class="my_call-body">
+						<div class="my_days-labels">
+							<div class="my_day"><div class="text-center">Mon</div></div>
+							<div class="my_day"><div class="text-center">Tue</div></div>
+							<div class="my_day"><div class="text-center">Wed</div></div>
+							<div class="my_day"><div class="text-center">Thr</div></div>
+							<div class="my_day"><div class="text-center">Fri</div></div>
+							<div class="my_day"><div class="text-center">Sat</div></div>
+							<div class="my_day"><div class="text-center">Sun</div></div>
+						</div>
+						<div class="my_days">
+							<div class="my_day">
+								<div class="my_list-panel">
+									<input type="checkbox" id="day1" class="my_dropday-trigger">
+									<label class="my_open-label" for="day1">
+										<div class="my_top-label"></div>
+									</label>
+									<div class="my_dropdown">
+										<div class="my_task-area">
+											<div class="my_task my_type-task-1">
+												<input id="task-id-1" type="checkbox" class="my_task-checkbox"></input>
+												<label for="task-id-1"></label>
+												<div> </div>
+												<div class="my_task-done-fade"></div>
+											</div>
+											<div class="my_task my_type-task-2">
+												<input id="task-id-2" type="checkbox" class="my_task-checkbox"></input>
+												<label for="task-id-2"></label>
+												<div> </div>
+												<div class="my_task-done-fade"></div>
+											</div>
+											<div class="my_task my_type-task-3">
+												<input id="task-id-3" type="checkbox" class="my_task-checkbox"></input>
+												<label for="task-id-3"></label>
+												<div> </div>
+												<div class="my_task-done-fade"></div>
+											</div>
+											<div class="my_task my_type-task-4">
+												<input id="task-id-4" type="checkbox" class="my_task-checkbox"></input>
+												<label for="task-id-4"></label>
+												<div> </div>
+												<div class="my_task-done-fade"></div>
+											</div>
+					 					</div>
+										<label for="day1"><div class="my_bottom-label"></div></label>
+									</div>
+								</div>
+								<div class="my_grid">
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+								</div>
+								<div class="my_events"></div>
+							</div>
+							<div class="my_day">
+								<div class="my_list-panel">
+									<input type="checkbox" id="day2" class="my_dropday-trigger">
+									<label class="my_open-label" for="day2">
+										<div class="my_top-label"></div>
+									</label>
+									<div class="my_dropdown">
+										<div class="my_task-area"></div>
+										<label for="day2"><div class="my_bottom-label"></div></label>
+									</div>
+								</div>
+								<div class="my_grid">
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+								</div>
+								<div class="my_events"></div>
+							</div>
+							<div class="my_day">
+								<div class="my_list-panel">
+									<input type="checkbox" id="day3" class="my_dropday-trigger">
+									<label class="my_open-label" for="day3">
+										<div class="my_top-label"></div>
+									</label>
+									<div class="my_dropdown">
+										<div class="my_task-area"></div>
+										<label for="day3"><div class="my_bottom-label"></div></label>
+									</div>
+								</div>
+								<div class="my_grid">
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+								</div>
+								<div class="my_events"></div>
+							</div>
+							<div class="my_day">
+								<div class="my_list-panel">
+									<input type="checkbox" id="day4" class="my_dropday-trigger">
+									<label class="my_open-label" for="day4">
+										<div class="my_top-label"></div>
+									</label>
+									<div class="my_dropdown">
+										<div class="my_task-area"></div>
+										<label for="day4"><div class="my_bottom-label"></div></label>
+									</div>
+								</div>
+								<div class="my_grid">
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+								</div>
+								<div class="my_events"></div>
+							</div>
+							<div class="my_day">
+								<div class="my_list-panel">
+									<input type="checkbox" id="day5" class="my_dropday-trigger">
+									<label class="my_open-label" for="day5">
+										<div class="my_top-label"></div>
+									</label>
+									<div class="my_dropdown">
+										<div class="my_task-area"></div>
+										<label for="day5"><div class="my_bottom-label"></div></label>
+									</div>
+								</div>
+								<div class="my_grid">
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+								</div>
+								<div class="my_events"></div>
+							</div>
+							<div class="my_day">
+								<div class="my_list-panel">
+									<input type="checkbox" id="day6" class="my_dropday-trigger">
+									<label class="my_open-label" for="day6">
+										<div class="my_top-label"></div>
+									</label>
+									<div class="my_dropdown">
+										<div class="my_task-area"></div>
+										<label for="day6"><div class="my_bottom-label"></div></label>
+									</div>
+								</div>
+								<div class="my_grid">
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+								</div>
+								<div class="my_events"></div>
+							</div>
+							<div class="my_day">
+								<div class="my_list-panel">
+									<input type="checkbox" id="day7" class="my_dropday-trigger">
+									<label class="my_open-label" for="day7">
+										<div class="my_top-label"></div>
+									</label>
+									<div class="my_dropdown">
+										<div class="my_task-area"></div>
+										<label for="day7"><div class="my_bottom-label"></div></label>
+									</div>
+								</div>
+								<div class="my_grid">
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+									<div class="my_hour">
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+										<div class="my_quater"></div>
+									</div>
+								</div>
+								<div class="my_events"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<div class="well my_container">
+					<div class="my_task-area">
+						<div class="my_task my_type-task-1">
+							<input id="task-id-1" type="checkbox" class="my_task-checkbox"></input>
+							<label for="task-id-1"></label>
+							<div> </div>
+							<div class="my_task-done-fade"></div>
+						</div>
+						<div class="my_task my_type-task-2">
+							<input id="task-id-2" type="checkbox" class="my_task-checkbox"></input>
+							<label for="task-id-2"></label>
+							<div> </div>
+							<div class="my_task-done-fade"></div>
+						</div>
+						<div class="my_task my_type-task-3">
+							<input id="task-id-3" type="checkbox" class="my_task-checkbox"></input>
+							<label for="task-id-3"></label>
+							<div> </div>
+							<div class="my_task-done-fade"></div>
+						</div>
+						<div class="my_task my_type-task-4">
+							<input id="task-id-4" type="checkbox" class="my_task-checkbox"></input>
+							<label for="task-id-4"></label>
+							<div> </div>
+							<div class="my_task-done-fade"></div>
+						</div>
+ 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

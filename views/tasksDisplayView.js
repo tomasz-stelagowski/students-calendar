@@ -9,7 +9,7 @@ define([
 			initialize: function(option){
 				this.tasks = new Tasks;
 
-				this.tasks.fetch();
+				this.tasks.save();
 				this.addAll();
 			},
 			addOne: function(task){

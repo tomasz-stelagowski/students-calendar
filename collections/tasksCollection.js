@@ -10,6 +10,11 @@ define([
 				this.add({name: "cos"});
 				this.add({name: "cos1"});
 				this.add({name: "cos2"});
+			},
+			save: function(){
+				this.each(function(task){
+					task.save();
+				});
 			}
 		});
 

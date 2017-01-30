@@ -4,7 +4,7 @@
 
 echo "Hello World";
 $pass = file_get_contents('../../password.txt')
-$conn = oci_connect('ts340234', '', '');
+$conn = oci_connect('ts340234', $pass, '');
 if (!$conn) {
     echo "dupa";
     $e = oci_error();

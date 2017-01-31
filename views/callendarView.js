@@ -1,8 +1,9 @@
 define([
 	"libs/baseView",
 	"text!temp/calAreaTemplate.html",
-	"js/dayView"
-	],function(baseView, tmpl, DayView){
+	"js/dayView",
+	"js/dateNavigationView"
+	],function(baseView, tmpl, DayView, CallNacView){
 		var myView = baseView.extend({
 			weekDays: {
 				monday: new DayView({dayName: "monday"}),
@@ -13,16 +14,23 @@ define([
 				saturday: new DayView({dayName: "saturday"}),
 				sunday: new DayView({dayName: "sunday"})
 			},
+			callNacView: new CallNacView(),
 			initialize: function(){
+				
 				this.render();
-
 			},
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
-				var $myDays = this.$("#my_days");
 
-				_.each(this.weekDays, function(day){ day.setElement($myDays); });
-				_.each(this.weekDays, function(day){ day.render(); });
+				this.callNacView.setElement(this.$("#my_call-nac"));
+				this.callNacView.render();
+
+
+				var $myDays = this.$("#my_days");
+				_.each(this.weekDays, function(day){ 
+					day.setElement($myDays); 
+					day.render();
+				});
 			}
 
 		});

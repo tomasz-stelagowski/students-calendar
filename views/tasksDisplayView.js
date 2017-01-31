@@ -10,13 +10,13 @@ define([
 				this.tasks = new Tasks;
 
 				this.tasks.save();
-				this.addAll();
 			},
 			addOne: function(task){
 				var taskView = new Task({model : task});
 				this.$el.append(taskView.render().el);
 			},
-			addAll: function(){
+			render: function(){
+				this.$el.html("");
 				this.tasks.each(function(task){
 					this.addOne(task);
 				}, this);	

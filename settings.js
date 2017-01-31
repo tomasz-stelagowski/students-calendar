@@ -5,6 +5,7 @@ require.config({
 		underscore : 'bower_components/underscore/underscore',
 		backbone : 'bower_components/backbone/backbone',
 		bootstrap : 'bower_components/bootstrap/dist/js/bootstrap',
+		datepicker : 'bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min',
 		temp : 'templates',
 		coll : 'collections',
 		js : 'views'
@@ -19,8 +20,17 @@ require.config({
 		},
 		bootstrap : {
 			deps : ["jquery"]
+		},
+		datepicker : {
+			deps : ["jquery", "moment", "bootstrap"],
 		}
-	}
+
+	},
+	packages : [{
+		name: 'moment',
+		location: 'bower_components/moment',
+		main: 'moment'
+	}]
 });
 
 

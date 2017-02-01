@@ -17,7 +17,7 @@ $key = array_shift($request)+0;
 
 
 // create SQL based on HTTP method
-/*switch ($method) {
+switch ($method) {
   case 'GET':
     $sql = "select * from `$table`".($key?" WHERE id=$key":''); 
     break;
@@ -31,7 +31,8 @@ $key = array_shift($request)+0;
     $sql = "delete `$table` where id=$key"; 
     break;
 }
- 
+
+/* 
 // excecute SQL statement
 $stid = oci_parse($link, $sql);
 oci_execute($stid);

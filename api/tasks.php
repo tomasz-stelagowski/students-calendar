@@ -36,7 +36,7 @@ switch ($method) {
 $stid = oci_parse($link, $sql);
 oci_execute($stid);
 
-$result = oci_fetch_all($stdi, 0, -1, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
+$result = oci_fetch_all($stdi, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
 
 /*
 echo 

@@ -12,8 +12,11 @@ define([
 			tasksDisplayView: new TasksDisplayView(),
 			render: function(){
 				this.$el.append(this.template({dayName: this.dayName}));
-				this.tasksDisplayView.setElement(this.$("#task-area-" + this.dayName));
-				this.tasksDisplayView.render();
+				this.tasksDisplayView.setElement(this.$("#task-area-" + this.dayName)).render();
+			},
+			remove: function(){
+				this.tasksDisplayView.remove();
+				Backbone.View.prototype.remove.call(this);
 			}
 
 		});

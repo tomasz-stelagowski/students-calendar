@@ -14,11 +14,13 @@ define([
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
 
-				this.tasksDisplayView.setElement(this.$("#my_tasks-area"));
-				this.tasksDisplayView.render();
-				
-				this.callNacView.setElement(this.$("#my_tasks-call-nac"));
-				this.callNacView.render();
+				this.tasksDisplayView.setElement(this.$("#my_tasks-area")).render();
+				this.callNacView.setElement(this.$("#my_tasks-call-nac")).render();
+			},
+			remove: function(){
+				this.tasksDisplayView.remove();
+				this.callNacView.remove();
+				Backbone.View.prototype.remove.call(this);
 			}
 
 		});

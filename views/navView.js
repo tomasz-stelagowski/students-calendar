@@ -10,6 +10,9 @@ define([
 			},
 			render: function(){
 				this.$el.append(this.template());
+			},
+			remove: function(){
+				Backbone.View.prototype.remove.call(this);
 			}
 
 		});

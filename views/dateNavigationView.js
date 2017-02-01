@@ -26,8 +26,11 @@ define([
 					var lastDate =  Moment(value, "DD-MM-YYYY").day(7).format("DD-MM-YYYY");
 					this.$('[datetimepicker]').val(firstDate + " - " + lastDate);
 				}).bind(this));
-			}
+			},
 
+			remove: function(){
+				Backbone.View.prototype.remove.call(this);
+			}
 
 		});
 });

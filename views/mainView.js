@@ -8,12 +8,23 @@ define([
 		var myView = baseView.extend({
 			initialize: function(){
 				this.render();
-				var callendarView = new CallendarView({el: this.$("#cal-col")});
-				var tasksView = new TasksView({el: this.$("#task-col")});
-				var navView = new NavView({el: this.$("nav")});
 			},
+			callendarView: new CallendarView(),
+			tasksView: new TasksView(),
+			navView: new NavView(),
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
+				
+				this.callendarView.setElement(this.$("#cal-col")).render();
+				this.tasksView.setElement(this.$("#task-col")).render();
+				this.navView.setElement(this.$("nav")).render();
+			},
+
+			remove: function(){
+				this.callendarView.remove();
+				this.tasksView.remove();
+				this.navView.remove();
+				Backbone.View.prototype.remove.call(this);
 			}
 
 		});

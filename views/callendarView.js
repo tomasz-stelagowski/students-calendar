@@ -28,9 +28,16 @@ define([
 
 				var $myDays = this.$("#my_days");
 				_.each(this.weekDays, function(day){ 
-					day.setElement($myDays); 
-					day.render();
+					day.setElement($myDays).render(); 
 				});
+			},
+
+			remove: function(){
+				this.callNacView.remove();
+				_.each(this.weekDays, function(el){
+					el.remove();
+				});
+				Backbone.View.prototype.remove.call(this);
 			}
 
 		});

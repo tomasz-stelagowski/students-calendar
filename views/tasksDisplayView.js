@@ -7,19 +7,19 @@ define([
 		var myView = baseView.extend({
 			template: _.template(tmpl),
 			initialize: function(option){
-				this.tasks = new Tasks;
+				
 
-				this.tasks.save();
 			},
-			addOne: function(task){
-				var taskView = new Task({model : task});
-				this.$el.append(taskView.render().el);
-			},
+			tasks: new Tasks(),
+
 			render: function(){
 				this.$el.html("");
 				this.tasks.each(function(task){
-					this.addOne(task);
+					this.$el.append(task.render().el);
 				}, this);	
+			},
+			remove: function(){
+				Backbone.View.prototype.remove.call(this);
 			}
 
 		});

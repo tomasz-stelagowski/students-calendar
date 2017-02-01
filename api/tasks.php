@@ -38,10 +38,10 @@ $date = $_GET['date'];
 
 echo $date;
 
-if($date) $sql = "select * from view_get_task_list where day = TO_DATE('".$date."', 'YYYY-MM-DD')"); 
-else $sql = "select * from view_get_task_list"; 
+//if($date) $sql = "select * from view_get_task_list where day = TO_DATE('".$date."', 'YYYY-MM-DD')"); 
+//else $sql = "select * from view_get_task_list"; 
 
-
+/*
 $stid = oci_parse($link, $sql);
 oci_execute($stid);
 
@@ -54,5 +54,5 @@ while($data = oci_fetch_array($stid,OCI_ASSOC))
 echo json_encode($json);
 
 oci_close($link);
-
+*/
 ?>

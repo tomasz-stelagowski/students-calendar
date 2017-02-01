@@ -42,6 +42,8 @@ while($data = oci_fetch_array($stid,OCI_ASSOC))
 {
           $json[] = $data;
 }
+
+echo $json;
 //$result = oci_fetch_all($stdi, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
 
 /*

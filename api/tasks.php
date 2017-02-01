@@ -38,7 +38,7 @@ oci_execute($stid);
 
 /*
 echo oci_fetch_all($stdi, 0, -1, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
- 
+*/ 
 oci_close($link);
-*/
+
 ?>

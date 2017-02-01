@@ -37,7 +37,12 @@ $sql = 'SELECT * FROM user_tables';
 $stid = oci_parse($link, $sql);
 oci_execute($stid);
 
-$result = oci_fetch_all($stdi, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
+$json = array();
+while($data = oci_fetch_array($stid,OCI_ASSOC))
+{
+          $json[] = $data;
+}
+//$result = oci_fetch_all($stdi, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
 
 /*
 echo 

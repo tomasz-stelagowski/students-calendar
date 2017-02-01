@@ -38,7 +38,7 @@ $date = $_GET['date'];
 
 echo $date;
 
-$sql = "select * from view_get_task_list where day = TO_DATE(" . "'" . $date . "', 'YYYY-MM-DD'";// . addslashes($date) . "\", \"YYYY-MM-DD\")"); 
+$sql = "select * from view_get_task_list where day = TO_DATE(" . "'" . $date . "', 'YYYY-MM-DD')"; 
 
 echo $sql;
 

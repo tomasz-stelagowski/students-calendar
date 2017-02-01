@@ -32,6 +32,7 @@ switch ($method) {
     break;
 }
 
+$sql = "SELECT * FROM user_tables"
  
 $stid = oci_parse($link, $sql);
 oci_execute($stid);

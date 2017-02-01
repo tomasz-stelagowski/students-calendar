@@ -17,7 +17,7 @@ $key = array_shift($request)+0;
 
 
 // create SQL based on HTTP method
-switch ($method) {
+/*switch ($method) {
   case 'GET':
     $sql = "select * from `$table`".($key?" WHERE id=$key":''); 
     break;
@@ -55,5 +55,5 @@ echo oci_fetch_all($stdi, 0, -1, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
  
 // close mysql connection
 oci_close($link);
-
+*/
 ?>

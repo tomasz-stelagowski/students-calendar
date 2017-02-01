@@ -16,14 +16,14 @@ $key = array_shift($request)+0;
 
 
 
-
+/*
 // create SQL based on HTTP method
 switch ($method) {
   case 'GET':
     $date = $_GET['date'];
     $sql = "select * from view_get_task_list where day = TO_DATE('".$date."', 'YYYY-MM-DD')"); 
     break;
- /* case 'PUT':
+  case 'PUT':
     $sql = "update `$table` set $set where id=$key"; 
     break;
   case 'POST':
@@ -31,10 +31,14 @@ switch ($method) {
     break;
   case 'DELETE':
     $sql = "delete `$table` where id=$key"; 
-    break;*/
+    break;
 }
+*/
+$date = $_GET['date'];
+if($date) $sql = "select * from view_get_task_list where day = TO_DATE('".$date."', 'YYYY-MM-DD')"); 
+else $sql = "select * from view_get_task_list"; 
 
- 
+
 $stid = oci_parse($link, $sql);
 oci_execute($stid);
 

@@ -33,28 +33,10 @@ switch ($method) {
 }
 
  
-// excecute SQL statement
 $stid = oci_parse($link, $sql);
 oci_execute($stid);
-/*
- 
-// print results, insert id or affected row count
-if ($method == 'GET') {
-  if (!$key) echo '[';
-  for ($i=0;$i<mysqli_num_rows($result);$i++) {
-    echo ($i>0?',':'').json_encode(mysqli_fetch_object($result));
-  }
-  if (!$key) echo ']';
-} else if ($method == 'POST') {
-  echo mysqli_insert_id($link);
-} else {
-  echo mysqli_affected_rows($link);
-}
-
 
 echo oci_fetch_all($stdi, 0, -1, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
  
-// close mysql connection
 oci_close($link);
-*/
 ?>

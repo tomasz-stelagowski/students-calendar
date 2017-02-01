@@ -32,11 +32,11 @@ switch ($method) {
     break;
 }
 
-/* 
+ 
 // excecute SQL statement
 $stid = oci_parse($link, $sql);
 oci_execute($stid);
-
+/*
  
 // print results, insert id or affected row count
 if ($method == 'GET') {

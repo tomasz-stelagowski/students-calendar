@@ -38,11 +38,8 @@ $date = $_GET['date'];
 
 echo $date;
 
-if(!$date) {
-  $sql = "select * from view_get_task_list where day = TO_DATE('".$date."', 'YYYY-MM-DD')"); 
-} else {
-  $sql = "select * from view_get_task_list"; 
-}
+$sql = "select * from view_get_task_list where day = TO_DATE('" . $date . "', 'YYYY-MM-DD')"); 
+
 /*
 $stid = oci_parse($link, $sql);
 oci_execute($stid);

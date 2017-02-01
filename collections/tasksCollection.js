@@ -4,7 +4,7 @@ define([
 	], function(Collection, Task){
 		var tasks = Collection.extend({
 			model: Task,
-			localeUrl: 'tasks',
+			localeUrl: 'tasks.php',
 			initialize: function(){
 			},
 			save: function(){

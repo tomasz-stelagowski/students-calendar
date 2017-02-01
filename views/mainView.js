@@ -7,11 +7,13 @@ define([
 	],function(baseView, tmpl, CallendarView, TasksView, NavView){
 		var myView = baseView.extend({
 			initialize: function(){
+
+				this.callendarView = new CallendarView();
+				this.tasksView = new TasksView();
+				this.navView = new NavView();
+				
 				this.render();
 			},
-			callendarView: new CallendarView(),
-			tasksView: new TasksView(),
-			navView: new NavView(),
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
 				

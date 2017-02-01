@@ -16,10 +16,12 @@ $key = array_shift($request)+0;
 
 
 
+
 // create SQL based on HTTP method
 switch ($method) {
   case 'GET':
-    $sql = "select * from `$table`".($key?" WHERE id=$key":''); 
+    $date = $_GET['date'];
+    $sql = "select * from view_get_task_list where day = TO_DATE('".$date."', 'YYYY-MM-DD')"); 
     break;
   case 'PUT':
     $sql = "update `$table` set $set where id=$key"; 
@@ -32,7 +34,6 @@ switch ($method) {
     break;
 }
 
-$sql = 'SELECT * FROM user_tables';
  
 $stid = oci_parse($link, $sql);
 oci_execute($stid);
@@ -44,11 +45,7 @@ while($data = oci_fetch_array($stid,OCI_ASSOC))
 }
 
 echo json_encode($json);
-//$result = oci_fetch_all($stdi, OCI_ASSOC + OCI_FETCHSTATEMENT_BY_ROW);
 
-/*
-echo 
-*/ 
 oci_close($link);
 
 ?>

@@ -9,10 +9,10 @@ define([
 				this.dayName = option.dayName;
 				this.dayDate = option.dayDate;
 
-				console.log(this.dayDate.format("DD-MM-YYYY"));
+				console.log(this.dayDate.format("YYYY-MM-DD"));
 
+				this.tasksDisplayView = new TasksDisplayView({day: this.dayDate});
 			},
-			tasksDisplayView: new TasksDisplayView(),
 			render: function(){
 				this.$el.html(this.template({dayName: this.dayName}));
 				this.tasksDisplayView.setElement(this.$("#task-area-" + this.dayName)).render();

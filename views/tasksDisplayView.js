@@ -6,14 +6,17 @@ define([
 	],function(baseView, Tasks, Task, tmpl){
 		var myView = baseView.extend({
 			template: _.template(tmpl),
-			initialize: function(option){
+			initialize: function(options){
+				this.day = options.day;
+				var day = this.day;
+
 				this.tasks.fetch({
 					success: this.initTasksViews,
 					error: function(){
 
 					},
 					data: {
-						date: "6"
+						date: this.day.format("YYYY-MM-DD")
 					}
 				})
 					this.initTasksViews();

@@ -1,42 +1,29 @@
 define([
 	"libs/baseView",
 	"text!temp/calAreaTemplate.html",
-	"js/dayView",
-	"js/dateNavigationView"
-	],function(baseView, tmpl, DayView, CallNacView){
+	"js/weekDaysView",
+	"js/dateNavigationSingleWeekView"
+	],function(baseView, tmpl, WeekDaysView, DateNavigationView){
 		var myView = baseView.extend({
-			weekDays: {
-				monday: new DayView({dayName: "monday"}),
-				tuesday: new DayView({dayName: "tuesday"}),
-				wednesday: new DayView({dayName: "wednesday"}),
-				thursday: new DayView({dayName: "thursday"}),
-				friday: new DayView({dayName: "friday"}),
-				saturday: new DayView({dayName: "saturday"}),
-				sunday: new DayView({dayName: "sunday"})
-			},
-			callNacView: new CallNacView(),
+			weekDaysView: new WeekDaysView(),
+			dateNavigationView: new DateNavigationView(),
 			initialize: function(){
-				
-				this.render();
+				this.listenTo(this.dateNavigationView, 'date:change', function(newDate){
+					this.weekDaysView.changeDate({newDate: newDate.firstDate});
+				});
+
 			},
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
 
-				this.callNacView.setElement(this.$("#my_call-nac"));
-				this.callNacView.render();
-
-
-				var $myDays = this.$("#my_days");
-				_.each(this.weekDays, function(day){ 
-					day.setElement($myDays).render(); 
-				});
+				this.dateNavigationView.setElement(this.$("#my_call-nac")).render();
+				this.weekDaysView.setElement(this.$("#my_days")).render();
+				
 			},
 
 			remove: function(){
-				this.callNacView.remove();
-				_.each(this.weekDays, function(el){
-					el.remove();
-				});
+				this.dateNavigationView.remove();
+				this.weekDaysView.remove();
 				Backbone.View.prototype.remove.call(this);
 			}
 

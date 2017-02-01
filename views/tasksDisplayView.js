@@ -7,18 +7,37 @@ define([
 		var myView = baseView.extend({
 			template: _.template(tmpl),
 			initialize: function(option){
-				
+				this.tasks.fetch({
+					success: this.initTasksViews,
+					error: function(){
 
+					},
+					data: {
+						date: "6"
+					}
+				})
+					this.initTasksViews();
 			},
 			tasks: new Tasks(),
+			tasksViews: [],
+			initTasksViews: function(){
+				this.tasksViews = [];
+
+				this.tasks.each(function(task){
+					this.tasksViews.push(new Task({model: task}));
+				}, this);
+			},
 
 			render: function(){
 				this.$el.html("");
-				this.tasks.each(function(task){
+				_.each(this.tasksViews, function(task){
 					this.$el.append(task.render().el);
 				}, this);	
 			},
 			remove: function(){
+				_.each(this.tasksViews, function(task){
+					task.remove();
+				});
 				Backbone.View.prototype.remove.call(this);
 			}
 

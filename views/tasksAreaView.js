@@ -2,24 +2,28 @@ define([
 	"libs/baseView",
 	"js/tasksDisplayView",
 	"text!temp/tasksTemplate.html",
-	"js/dateNavigationView"
-	],function(baseView, TasksDisplayView, tmpl, CallNacView){
+	"js/dateNavigationSingleDayView"
+	],function(baseView, TasksDisplayView, tmpl, DateNavigation){
 		var myView = baseView.extend({
 			initialize: function(){
+				this.listenTo(this.dateNavigation, "date:change", function(options){
+
+				});
+
 				this.render();
 				
 			},
 			tasksDisplayView: new TasksDisplayView(),
-			callNacView: new CallNacView(),
+			dateNavigation: new DateNavigation(),
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
 
 				this.tasksDisplayView.setElement(this.$("#my_tasks-area")).render();
-				this.callNacView.setElement(this.$("#my_tasks-call-nac")).render();
+				this.dateNavigation.setElement(this.$("#my_tasks-call-nac")).render();
 			},
 			remove: function(){
 				this.tasksDisplayView.remove();
-				this.callNacView.remove();
+				this.dateNavigation.remove();
 				Backbone.View.prototype.remove.call(this);
 			}
 

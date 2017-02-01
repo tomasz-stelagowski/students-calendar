@@ -6,7 +6,6 @@ define([
 			model: Task,
 			localeUrl: 'tasks',
 			initialize: function(){
-
 			},
 			save: function(){
 				this.each(function(task){

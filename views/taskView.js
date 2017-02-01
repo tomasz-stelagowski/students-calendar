@@ -7,7 +7,7 @@ define([
 			//className: "my_task",
 			template: _.template(tmpl, {}),
 			initialize: function(){
-				
+				debugger;
 			},
 			render: function(){
 				this.$el.html(this.template(this.model.attributes));

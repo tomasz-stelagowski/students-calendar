@@ -48,10 +48,14 @@ switch ($method) {
 $stid = oci_parse($link, $sql);
 
 foreach ($_POST as $postkey => $value) {
-    oci_bind_by_name($stid, ":$postkey", $value);
+    oci_bind_by_name($stid, ":$postkey", $value, 32);
 }
-oci_bind_by_name($stid, ":key", $key);
+oci_bind_by_name($stid, ":key", $key, 32);
 
+$error = oci_error($stid);
+if($error){
+  print_r($error);
+}
 
 oci_execute($stid);
 

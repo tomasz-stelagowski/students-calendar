@@ -20,7 +20,7 @@ define([
 				this.dateNavigation.setElement(this.$("#my_tasks-call-nac")).render();
 			},
 			initTaskDisplayView: function(){
-				this.tasksDisplayView = new TasksDisplayView({el: this.$("#my_tasks-area"), day: Moment('02-02-2017', 'DD-MM-YYYY').format("DD-MM-YYYY")});
+				this.tasksDisplayView = new TasksDisplayView({el: this.$("#my_tasks-area"), day: Moment(this.date, 'DD-MM-YYYY').format("DD-MM-YYYY")});
 				this.listenTo(this.tasksDisplayView, "task:update", function(options){
 					this.trigger("task:update", options);
 				});

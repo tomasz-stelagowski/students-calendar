@@ -33,9 +33,7 @@ switch ($method) {
     switch($overMethod) {
       case 'PUT':
         //$sql = "BEGIN modify_to_do_item (:key, :DONE); END;";
-print_r($_POST);
-        $sql = "BEGIN modify_to_do_item (". $key .", ".$_POST['DONE']."); END;";
-        echo $sql;
+        $sql = "BEGIN modify_to_do_item (:key, :DONE); END;";
         break;
       case 'DELETE':
         break;
@@ -49,8 +47,8 @@ print_r($_POST);
 
 $stid = oci_parse($link, $sql);
 
-//oci_bind_by_name($stid, ":key", $key);
-//oci_bind_by_name($stid, ":done", $_POST['DONE']);
+oci_bind_by_name($stid, ":key", $key);
+oci_bind_by_name($stid, ":DONE", $input['DONE']);
 
 /*foreach ($_POST as $postkey => $value) {
     oci_bind_by_name($stid, ":$postkey", $value, 32);

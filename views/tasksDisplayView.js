@@ -12,7 +12,7 @@ define([
 
 				this.tasks.fetch({
 					success: (function(){
-						this.initTasksViews.bind(this);
+						this.initTasksViews();
 						this.render();
 					}).bind(this),
 					error: function(){

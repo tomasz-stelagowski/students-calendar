@@ -18,8 +18,9 @@ define([
 
 				var self = this;
 				var cos = function(){
-					debugger;
 					console.log(self);
+					console.log(this);
+					debugger;
 				}
 				this.tasksDisplayView = new TasksDisplayView({el: this.$("#task-area-" + this.dayName), day: this.dayDate.format("DD-MM-YYYY"), cal: cos});
 

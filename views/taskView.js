@@ -6,7 +6,7 @@ define([
 			//tagName: "div",
 			//className: "my_task",
 			events: {
-				"change .input": "toggle"
+				"change input": "toggle"
 			},
 			toggle: function(){
 				if($(this.$("input")).is(':checked')){

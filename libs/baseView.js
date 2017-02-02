@@ -7,9 +7,9 @@ define([
 	"moment/locale/pl"
 	],function($, _, Backbone, Moment){
 		var BaseView = function(options){
-			Moment.locale('pl');
+			Moment.locale('en');
 			Backbone.emulateHTTP = true;
-			
+
 			Backbone.View.apply(this, [options]);
 		}
 

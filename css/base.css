@@ -12,6 +12,10 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
+.no-popup{
+	display: none;
+}
+
 .middlePage {
 	position: absolute;
 	width: 680px;

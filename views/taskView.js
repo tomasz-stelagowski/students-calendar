@@ -1,12 +1,24 @@
 define([
 	"libs/baseView",
+	"js/addTaskView",
 	"text!temp/taskTemplate.html"
-	],function(baseView, tmpl){
+	],function(baseView, AddTask, tmpl){
 		var myView = baseView.extend({
 			//tagName: "div",
 			//className: "my_task",
 			events: {
-				"change input": "toggle"
+				"change input": "toggle",
+				"click": "popup"
+			},
+			popup: function(){
+				this.addTask = new AddTask({task: this, close: closePopup.bind(this)});
+				$("#popups").append(this.addTask.render().$el);
+				$("#popups").removeClass("no-popup");
+			},
+			closePopup: function(){
+				this.addTask = {};
+				$("#popups").html("");
+				$("#popups").addClass("no-popup");
 			},
 			toggle: function(){
 				if($(this.$("input")).is(':checked')){

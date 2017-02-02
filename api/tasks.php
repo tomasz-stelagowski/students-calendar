@@ -1,8 +1,9 @@
 <?php
  
 
-// get the HTTP method, path and body of the request
+// get the HTTP method, path and body of the request, and overriden method
 $method = $_SERVER['REQUEST_METHOD'];
+$overMethod = $_SERVER['HTTP_X-HTTP-METHOD-OVERRIDE'];
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 $input = json_decode(file_get_contents('php://input'),true);
  
@@ -12,9 +13,16 @@ $link = oci_connect('ts340234', $pass, '');
  
 // retrieve the key from the path
 $key = array_shift($request)+0;
-echo $key;
 
+$columns = array_keys($input);
+$values = array_values($input);
+$set = '';
+for ($i=0;$i<count($columns);$i++) {
+  $set.=($i>0?',':'').'`'.$columns[$i].'`=';
+  $set.=($values[$i]===null?'NULL':'"'.$values[$i].'"');
+}
 
+echo $overMethod;
 
 // create SQL based on HTTP method
 switch ($method) {
@@ -25,7 +33,7 @@ switch ($method) {
   case 'POST':
     $over_method = $_POST[''];
 
-    $sql = "update to_do_items set done = 'Y' where id=" . $key; 
+   // $sql = "update to_do_items set done = 'Y' where id=" . $key; 
     break;
   case 'DELETE':
     break;

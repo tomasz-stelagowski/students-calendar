@@ -30,7 +30,8 @@ require.config({
 		name: 'moment',
 		location: 'bower_components/moment',
 		main: 'moment'
-	}]
+	}],
+	waitSeconds: 0
 });
 
 

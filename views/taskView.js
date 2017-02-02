@@ -8,7 +8,6 @@ define([
 			//className: "my_task",
 			events: {
 				"change input": "toggle",
-				"click": "popup"
 			},
 			popup: function(){
 				this.addTask = new AddTask({task: this, close: this.closePopup.bind(this)});

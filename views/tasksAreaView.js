@@ -8,7 +8,7 @@ define([
 		var myView = baseView.extend({
 			initialize: function(){
 				this.date = Moment().format('DD-MM-YYYY');
-				this.listenTo(this.dateNavigation, "date:change", reRenderTaskList.bind(this));
+				this.listenTo(this.dateNavigation, "date:change", this.reRenderTaskList.bind(this));
 			},
 			dateNavigation: new DateNavigation(),
 			render: function(){

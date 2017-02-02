@@ -6,13 +6,13 @@ define([
 		var myView = baseView.extend({
 			initDays: function(){
 				this.weekDays = {
-					monday: new DayView({dayDate: this.date.day(1).format('DD-MM-YYYY'), dayName: "monday"}),
-					tuesday: new DayView({dayDate: this.date.day(2).format('DD-MM-YYYY'), dayName: "tuesday"}),
-					wednesday: new DayView({dayDate: this.date.day(3).format('DD-MM-YYYY'), dayName: "wednesday"}),
-					thursday: new DayView({dayDate: this.date.day(4).format('DD-MM-YYYY'), dayName: "thursday"}),
-					friday: new DayView({dayDate: this.date.day(5).format('DD-MM-YYYY'), dayName: "friday"}),
-					saturday: new DayView({dayDate: this.date.day(6).format('DD-MM-YYYY'), dayName: "saturday"}),
-					sunday: new DayView({dayDate: this.date.day(7).format('DD-MM-YYYY'), dayName: "sunday"})
+					Monday: new DayView({dayDate: this.date.day(1).format('DD-MM-YYYY'), dayName: "monday"}),
+					Tuesday: new DayView({dayDate: this.date.day(2).format('DD-MM-YYYY'), dayName: "tuesday"}),
+					Wednesday: new DayView({dayDate: this.date.day(3).format('DD-MM-YYYY'), dayName: "wednesday"}),
+					Thursday: new DayView({dayDate: this.date.day(4).format('DD-MM-YYYY'), dayName: "thursday"}),
+					Friday: new DayView({dayDate: this.date.day(5).format('DD-MM-YYYY'), dayName: "friday"}),
+					Saturday: new DayView({dayDate: this.date.day(6).format('DD-MM-YYYY'), dayName: "saturday"}),
+					Sunday: new DayView({dayDate: this.date.day(7).format('DD-MM-YYYY'), dayName: "sunday"})
 				};
 			},
 			initialize: function(options){
@@ -23,9 +23,8 @@ define([
 				this.initDays();
 			},
 			taskUpdate: function(option){
-				debugger;
 				var when = Moment(option, 'DD-MM-YYYY');
-
+				this.weekDays[when.locale('en').format('dddd')].taskUpdate(option);
 			},
 			render: function(){
 				var $myDays = this.$el;

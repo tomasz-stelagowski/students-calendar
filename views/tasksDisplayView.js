@@ -44,8 +44,7 @@ define([
 					},
 					reset: true
 				})
-			},
-
+			}
 			render: function(){
 				this.$el.html("");
 				_.each(this.tasksViews, function(task){

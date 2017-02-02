@@ -20,6 +20,9 @@ define([
 
 				return this;
 			},
+			taskUpdate: function(option){
+				this.tasksDisplayView.refresh();
+			},
 			remove: function(){
 				this.tasksDisplayView.remove();
 				Backbone.View.prototype.remove.call(this);

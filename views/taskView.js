@@ -15,7 +15,8 @@ define([
 					this.model.set("DONE", "Y");
 				}
 				//this.model.save();
-				this.model.destroy(null, {headers: {page: 3}});
+				//this.model.destroy(null, {headers: {page: 3}});
+				this.model.destroy({data: { program_id: dealProgram.id }, processData: true})
 			},
 			template: _.template(tmpl, {}),
 			initialize: function(){

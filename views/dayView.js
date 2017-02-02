@@ -11,11 +11,11 @@ define([
 
 				console.log(this.dayDate.format("YYYY-MM-DD"));
 
-				this.tasksDisplayView = new TasksDisplayView({day: this.dayDate});
 			},
 			render: function(){
 				this.$el.html(this.template({dayName: this.dayName}));
-				this.tasksDisplayView.setElement(this.$("#task-area-" + this.dayName)).render();
+
+				this.tasksDisplayView = new TasksDisplayView({el: this.$("#task-area-" + this.dayName), day: this.dayDate});
 
 				return this;
 			},

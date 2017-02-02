@@ -11,7 +11,7 @@ define([
 				"click": "popup"
 			},
 			popup: function(){
-				this.addTask = new AddTask({task: this, close: closePopup.bind(this)});
+				this.addTask = new AddTask({task: this, close: this.closePopup.bind(this)});
 				$("#popups").append(this.addTask.render().$el);
 				$("#popups").removeClass("no-popup");
 			},

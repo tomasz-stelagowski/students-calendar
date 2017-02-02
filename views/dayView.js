@@ -10,7 +10,6 @@ define([
 				this.dayName = option.dayName;
 				this.dayDate = Moment(option.dayDate, "DD-MM-YYYY");
 
-				console.log(this.dayDate.format("YYYY-MM-DD"));
 
 			},
 			render: function(){

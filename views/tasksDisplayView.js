@@ -44,7 +44,7 @@ define([
 			render: function(){
 				this.$el.html("");
 				_.each(this.tasksViews, function(task){
-					task.render().setElement(this.$el);
+					this.$el.append(task.render().el.innerHTML);
 				}, this);	
 			},
 			remove: function(){

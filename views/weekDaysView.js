@@ -17,6 +17,7 @@ define([
 			},
 			initialize: function(options){
 				options = options || {};
+				options.col && options.col();
 				var date = options.date || Moment().format('DD-MM-YYYY'); 
 				this.date = Moment(date, 'DD-MM-YYYY').day(1);
 

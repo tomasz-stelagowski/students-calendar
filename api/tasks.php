@@ -50,10 +50,10 @@ $stid = oci_parse($link, $sql);
 //oci_bind_by_name($stid, ":key", $key);
 //oci_bind_by_name($stid, ":DONE", $input['DONE']);
 
-foreach ($_POST as $postkey => $value) {
-    oci_bind_by_name($stid, ":$postkey", $value, 32);
+foreach ($input as $postkey => $value) {
+    oci_bind_by_name($stid, ":$postkey", $value);
 }
-oci_bind_by_name($stid, ":key", $key, 32);
+oci_bind_by_name($stid, ":key", $key);
 
 oci_execute($stid);
 

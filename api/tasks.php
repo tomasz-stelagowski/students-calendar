@@ -3,7 +3,7 @@
 
 // get the HTTP method, path and body of the request, and overriden method
 $method = $_SERVER['REQUEST_METHOD'];
-$overMethod = $_SERVER['HTTP_X-HTTP-Method-Override'];
+$overMethod = $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'];
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 $input = json_decode(file_get_contents('php://input'),true);
  
@@ -22,8 +22,6 @@ for ($i=0;$i<count($columns);$i++) {
   $set.=($values[$i]===null?'NULL':'"'.$values[$i].'"');
 }
 
-print_r($_SERVER);
-echo $overMethod;
 
 // create SQL based on HTTP method
 switch ($method) {
@@ -32,12 +30,16 @@ switch ($method) {
     $sql = "select * from view_get_task_list where day = TO_DATE(" . "'" . $date . "', 'YYYY-MM-DD')"; 
     break;
   case 'POST':
-    $over_method = $_POST[''];
-
-   // $sql = "update to_do_items set done = 'Y' where id=" . $key; 
-    break;
-  case 'DELETE':
-    break;
+    switch($overMethod) {
+      case 'PUT':
+        $sql = "update to_do_items set $set where id=$key";
+        break;
+      case 'DELETE':
+        break;
+      default:
+        break;     
+    }
+    break; 
 }
 
 

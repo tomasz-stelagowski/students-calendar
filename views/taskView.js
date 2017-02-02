@@ -16,7 +16,7 @@ define([
 				}
 				//this.model.save();
 				//this.model.destroy(null, {headers: {page: 3}});
-				this.model.save({data: { page: 3 }}, {processData: true})
+				this.model.save()
 			},
 			template: _.template(tmpl, {}),
 			initialize: function(){

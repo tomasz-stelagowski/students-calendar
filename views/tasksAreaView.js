@@ -14,7 +14,7 @@ define([
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
 
-				this.tasksDisplayView = new TasksDisplayView({el: this.$("#my_tasks-area"), day: Moment('02-02-2017', 'DD-MM-YYYY').format("DD-MM-YYYY")});
+				this.initTaskDisplayView();
 
 
 				this.dateNavigation.setElement(this.$("#my_tasks-call-nac")).render();

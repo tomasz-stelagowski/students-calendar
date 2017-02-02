@@ -25,7 +25,6 @@ define([
 
 				_.each(this.tasksViews, (function(task){
 					this.listenTo(task, "task:update", function(){
-						debugger;
 						this.trigger("task:update", this.day.format('DD-MM-YYYY'));
 					});
 				}).bind(this));

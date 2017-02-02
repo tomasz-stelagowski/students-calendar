@@ -1,13 +1,14 @@
 define([
 	"libs/baseView",
+	"moment",
 	"coll/tasksCollection",
 	"js/taskView",
 	"text!temp/taskTemplate.html"
-	],function(baseView, Tasks, Task, tmpl){
+	],function(baseView, Moment, Tasks, Task, tmpl){
 		var myView = baseView.extend({
 			template: _.template(tmpl),
 			initialize: function(options){
-				this.day = options.day;
+				this.day = Moment(options.day, 'DD-MM-YYYY');
 				var day = this.day;
 
 				this.tasks.fetch({
@@ -15,9 +16,12 @@ define([
 						this.initTasksViews();
 						this.render();
 					}).bind(this),
-					error: function(){
-
-					},
+					error: (function(){
+						console.log("error");
+						this.add({ name: 'wytryh' });
+						this.initTasksViews();
+						this.render();
+					}),
 					data: {
 						date: this.day.format("YYYY-MM-DD")
 					}

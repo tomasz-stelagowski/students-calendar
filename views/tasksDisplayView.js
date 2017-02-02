@@ -22,7 +22,7 @@ define([
 						date: this.day.format("YYYY-MM-DD")
 					}
 				})
-					this.initTasksViews();
+				//	this.initTasksViews();
 			},
 			tasks: new Tasks(),
 			tasksViews: [],

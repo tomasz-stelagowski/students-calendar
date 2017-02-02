@@ -14,7 +14,8 @@ define([
 				} else {
 					this.model.set("DONE", "Y");
 				}
-				this.model.save();
+				//this.model.save();
+				this.model.destroy();
 			},
 			template: _.template(tmpl, {}),
 			initialize: function(){

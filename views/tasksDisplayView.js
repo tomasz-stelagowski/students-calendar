@@ -20,10 +20,10 @@ define([
 					}).bind(this),
 					error: (function(){
 						console.log("error");
-						this.add({ name: 'wytryh' });
+						this.tasks.add({ name: 'wytryh' });
 						this.initTasksViews();
 						this.render();
-					}),
+					}).bind(this),
 					data: {
 						date: this.day.format("YYYY-MM-DD")
 					},

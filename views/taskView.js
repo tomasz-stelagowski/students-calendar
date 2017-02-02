@@ -15,7 +15,7 @@ define([
 					this.model.set("DONE", "Y");
 				}
 				//this.model.save();
-				this.model.save(null, {headers: {page: 3}});
+				this.model.destroy(null, {headers: {page: 3}});
 			},
 			template: _.template(tmpl, {}),
 			initialize: function(){

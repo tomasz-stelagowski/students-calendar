@@ -20,12 +20,16 @@ define([
 				this.tasksViews = [];
 
 				this.tasks.each(function(modeltask){
-					var task = new Task({model: modeltask})
-					this.tasksViews.push(task);
+					this.tasksViews.push(new Task({model: modeltask}));
+				}, this);
+
+				_.each(this.tasksViews, (function(task){
 					this.listenTo(task, "task:update", function(){
+						debugger;
 						this.trigger("task:update", this.day.format('DD-MM-YYYY'));
 					});
-				}, this);
+				}).bind(this));
+
 			},
 			refresh: function(){
 				this.tasks.fetch({

@@ -53,7 +53,7 @@ foreach ($_POST as $postkey => $value) {
 oci_bind_by_name($stid, ":key", $key, 32);
 
 $error = oci_error($stid);
-if($error){
+if($method == 'POST' && $error){
   print_r($error);
 }
 

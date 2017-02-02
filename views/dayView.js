@@ -16,13 +16,7 @@ define([
 			render: function(){
 				this.$el.html(this.template({dayName: this.dayName}));
 
-				var self = this;
-				var cos = function(){
-					console.log(self);
-					console.log(this);
-					debugger;
-				}
-				this.tasksDisplayView = new TasksDisplayView({el: this.$("#task-area-" + this.dayName), day: this.dayDate.format("DD-MM-YYYY"), cal: cos});
+				this.tasksDisplayView = new TasksDisplayView({el: this.$("#task-area-" + this.dayName), day: this.dayDate.format("DD-MM-YYYY")});
 
 				return this;
 			},

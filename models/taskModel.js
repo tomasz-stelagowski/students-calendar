@@ -1,8 +1,9 @@
 define([
-		'backbone'
-	], function(Backbone){
+		'libs/baseModel'
+	], function(BaseModel){
 
-		var model = Backbone.Model.extend({
+		var model = BaseModel.extend({
+			localeUrl: "tasks/php",
 			defaults: {
 				NAME: ""
 			},

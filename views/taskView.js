@@ -16,6 +16,7 @@ define([
 				}
 
 				this.model.save()
+				this.trigger("task:update");
 			},
 			template: _.template(tmpl, {}),
 			initialize: function(){

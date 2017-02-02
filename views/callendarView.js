@@ -13,6 +13,9 @@ define([
 				});
 
 			},
+			taskUpdate: function(option){
+				this.weekDaysView.taskUpdate(option);
+			},
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
 

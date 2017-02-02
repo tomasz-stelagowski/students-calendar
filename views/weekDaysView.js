@@ -22,6 +22,11 @@ define([
 
 				this.initDays();
 			},
+			taskUpdate: function(option){
+				debugger;
+				var when = Moment(option, 'DD-MM-YYYY');
+
+			},
 			render: function(){
 				var $myDays = this.$el;
 				_.each(this.weekDays, function(day){ 

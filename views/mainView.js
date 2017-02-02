@@ -12,6 +12,10 @@ define([
 				this.tasksView = new TasksView();
 				this.navView = new NavView();
 				
+				this.listenTo(this.tasksView, "task:update", function(option){
+					this.callendarView.taskUpdate(option);
+				});
+
 				this.render();
 			},
 			render: function(){

@@ -11,22 +11,7 @@ define([
 				this.day = Moment(options.day, 'DD-MM-YYYY');
 				var day = this.day;
 
-				this.tasks.fetch({
-					success: (function(){
-						this.initTasksViews();
-						this.render();
-					}).bind(this),
-					error: (function(){
-						console.log("error");
-						this.tasks.add({ name: 'wytryh' });
-						this.initTasksViews();
-						this.render();
-					}).bind(this),
-					data: {
-						date: this.day.format("YYYY-MM-DD")
-					},
-					reset: true
-				})
+				this.refresh();
 				//	this.initTasksViews();
 			},
 			tasks: new Tasks(),
@@ -34,10 +19,29 @@ define([
 			initTasksViews: function(){
 				this.tasksViews = [];
 
-				this.tasks.each(function(task){
-					this.tasksViews.push(new Task({model: task}));
+				this.tasks.each(function(modeltask){
+					var task = new Task({model: modeltask})
+					this.tasksViews.push(task);
+					this.listenTo(task, "task:update", function(){
+						this.trigger("task:update", this.day.format('DD-MM-YYYY'));
+					});
 				}, this);
 			},
+			refresh: function(){
+				this.tasks.fetch({
+					success: (function(){
+						this.initTasksViews();
+						this.render();
+					}).bind(this),
+					error: (function(){
+						this.render();
+					}).bind(this),
+					data: {
+						date: this.day.format("YYYY-MM-DD")
+					},
+					reset: true
+				})
+			}
 
 			render: function(){
 				this.$el.html("");

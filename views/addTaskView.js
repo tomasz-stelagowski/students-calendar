@@ -18,7 +18,7 @@ define([
 			},
 			render: function(){
 				this.$el.html(this.template());
-				this.$("[close]").on("click", this.closePopup.bind(this));
+				$(this.$("[close]")).click(this.closePopup.bind(this));
 				return this;
 			}
 		});

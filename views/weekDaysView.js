@@ -25,7 +25,9 @@ define([
 			render: function(){
 				var $myDays = this.$el;
 				_.each(this.weekDays, function(day){ 
-					this.$el.append(day.render().$el.html()); 
+					day.setElement($myDays);
+					day.render();
+					//this.$el.append(day.render().$el.html()); 
 				}, this);
 			},
 

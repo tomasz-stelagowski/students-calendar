@@ -7,14 +7,11 @@ define([
 			//className: "my_task",
 			template: _.template(tmpl, {}),
 			initialize: function(){
-				debugger;
+			
 			},
 			render: function(){
 				this.$el.html(this.template(this.model.attributes));
 				return this;
-			},
-			remove: function(){
-				Backbone.View.prototype.remove.call(this);
 			}
 		});
 		return myView;

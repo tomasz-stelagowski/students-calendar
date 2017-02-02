@@ -8,7 +8,7 @@ define([
 		var myView = baseView.extend({
 			template: _.template(tmpl),
 			initialize: function(options){
-				options.col && options.col();
+				options.cal && options.cal();
 				
 				this.day = Moment(options.day, 'DD-MM-YYYY');
 				var day = this.day;

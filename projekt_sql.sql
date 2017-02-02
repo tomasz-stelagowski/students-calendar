@@ -217,13 +217,13 @@ END;
 -------------------------------------------------
 -- Blok Widoków
 CREATE VIEW view_get_task_list AS
-	SELECT B.id, A.name, A.type, A.c_user, A.t_user,  B.done, C.day, C.rank
-	FROM to_do_single_items A, to_do_items B, to_do_lists C
-	WHERE B.id = C.item and B.single_item = A.id
+	SELECT B.id, A.name, D.name as type_name, E.login, E.name as user_name, E.surname, A.t_user,  B.done, C.day, C.rank
+	FROM to_do_single_items A, to_do_items B, to_do_lists C, types D, users E
+	WHERE B.id = C.item and B.single_item = A.id and D.id = A.type and A.c_user = E.id
 	UNION
-	SELECT B.id, A.name, A.type, A.c_user, A.t_user,  B.done, C.day, C.rank
-	FROM events A, to_do_items B, to_do_lists C
-	WHERE B.id = C.item and B.event_item = A.id;
+	SELECT B.id, A.name, D.name as type_name, E.login, E.name as user_name, E.surname, A.t_user,  B.done, C.day, C.rank
+	FROM events A, to_do_items B, to_do_lists C, types D, users E
+	WHERE B.id = C.item and B.event_item = A.id and D.id = A.type and A.c_user = E.id;
 
 -- koniec bloku widoków 
 -------------------------------------------------

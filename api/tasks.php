@@ -33,6 +33,7 @@ switch ($method) {
     switch($overMethod) {
       case 'PUT':
         $sql = "update to_do_items set $set where id=$key";
+        echo $sql;
         break;
       case 'DELETE':
         break;

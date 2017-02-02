@@ -12,10 +12,9 @@ define([
 				if($(this.$("input")).is(':checked')){
 					this.model.set("DONE", "Y");
 				} else {
-					this.model.set("DONE", "Y");
+					this.model.set("DONE", "N");
 				}
-				//this.model.save();
-				//this.model.destroy(null, {headers: {page: 3}});
+
 				this.model.save()
 			},
 			template: _.template(tmpl, {}),

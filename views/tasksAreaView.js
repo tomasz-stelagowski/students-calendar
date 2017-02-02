@@ -13,16 +13,16 @@ define([
 				this.render();
 				
 			},
-			//tasksDisplayView: new TasksDisplayView(),
 			dateNavigation: new DateNavigation(),
 			render: function(){
 				this.$el.html(_.template(tmpl, {}));
 
-				//this.tasksDisplayView.setElement(this.$("#my_tasks-area")).render();
+				this.tasksDisplayView = new TasksDisplayView({el: this.$("#my_tasks-area"), day: Moment('02-02-2017', 'DD-MM-YYYY').format("DD-MM-YYYY")});
+
 				this.dateNavigation.setElement(this.$("#my_tasks-call-nac")).render();
 			},
 			remove: function(){
-				//this.tasksDisplayView.remove();
+				this.tasksDisplayView.remove();
 				this.dateNavigation.remove();
 				Backbone.View.prototype.remove.call(this);
 			}

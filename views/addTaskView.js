@@ -5,10 +5,15 @@ define([
 		var myView = baseView.extend({
 			
 			events: {
-				
+				"click [close]": "closePopup"
+			},
+			closePopup: function(){
+				this.closeCallback();
 			},
 			template: _.template(tmpl, {}),
-			initialize: function(){
+			initialize: function(options){
+				this.closeCallback = options.close;
+				this.task = options.task;
 				
 
 			},

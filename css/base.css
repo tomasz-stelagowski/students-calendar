@@ -30,6 +30,8 @@ body {
 .popups > div{
 	margin: auto;
 	position: relative;
+	top: 150px;
+	max-width: 600px;
 }
 
 .middlePage {

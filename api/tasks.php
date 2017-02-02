@@ -3,7 +3,7 @@
 
 // get the HTTP method, path and body of the request, and overriden method
 $method = $_SERVER['REQUEST_METHOD'];
-$overMethod = $_SERVER['HTTP_X-HTTP-METHOD-OVERRIDE'];
+$overMethod = $_SERVER['HTTP_X-HTTP-Method-Override'];
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 $input = json_decode(file_get_contents('php://input'),true);
  

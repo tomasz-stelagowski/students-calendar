@@ -22,6 +22,7 @@ for ($i=0;$i<count($columns);$i++) {
   $set.=($values[$i]===null?'NULL':'"'.$values[$i].'"');
 }
 
+print_r($_POST);
 
 // create SQL based on HTTP method
 switch ($method) {

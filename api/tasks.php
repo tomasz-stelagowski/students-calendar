@@ -10,11 +10,9 @@ $input = json_decode(file_get_contents('php://input'),true);
 $pass = file_get_contents('../../../password.txt');
 $link = oci_connect('ts340234', $pass, '');
  
-// retrieve the table and key from the path
-echo array_shift($request);
-$table = preg_replace('/[^a-z0-9_]+/i','',array_shift($request));
+// retrieve the key from the path
 $key = array_shift($request)+0;
-
+echo $key;
 
 
 

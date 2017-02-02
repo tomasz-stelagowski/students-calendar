@@ -37,7 +37,7 @@ define([
 			render: function(){
 				this.$el.html("");
 				_.each(this.tasksViews, function(task){
-					this.$el.append(task.render().el);
+					this.$el.append(task.render().$el.html());
 				}, this);	
 			},
 			remove: function(){

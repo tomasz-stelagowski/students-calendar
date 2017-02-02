@@ -11,7 +11,6 @@ define([
 
 				});
 
-				this.render();
 				
 			},
 			dateNavigation: new DateNavigation(),

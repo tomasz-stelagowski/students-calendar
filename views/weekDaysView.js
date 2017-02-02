@@ -32,8 +32,9 @@ define([
 			changeDate: function(options){
 				if (!(options && options.newDate)) return;
 
-				this.removeElements();
+				//this.removeElements();
 				this.$el.html("");
+				delete this.weekDays;
 				this.date = Moment(options.newDate, 'DD-MM-YYYY').day(1);
 
 				this.initDays();

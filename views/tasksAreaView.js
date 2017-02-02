@@ -1,9 +1,10 @@
 define([
 	"libs/baseView",
+	"moment",
 	"js/tasksDisplayView",
 	"text!temp/tasksTemplate.html",
 	"js/dateNavigationSingleDayView"
-	],function(baseView, TasksDisplayView, tmpl, DateNavigation){
+	],function(baseView, Moment, TasksDisplayView, tmpl, DateNavigation){
 		var myView = baseView.extend({
 			initialize: function(){
 				this.listenTo(this.dateNavigation, "date:change", function(options){

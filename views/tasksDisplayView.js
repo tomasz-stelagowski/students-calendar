@@ -11,7 +11,10 @@ define([
 				var day = this.day;
 
 				this.tasks.fetch({
-					success: this.initTasksViews.bind(this),
+					success: (function(){
+						this.initTasksViews.bind(this);
+						this.render();
+					}).bind(this),
 					error: function(){
 
 					},

@@ -18,7 +18,7 @@ $columns = array_keys($input);
 $values = array_values($input);
 $set = '';
 for ($i=0;$i<count($columns);$i++) {
-  $set.=($i>0?',':'').'`'.$columns[$i].'`=';
+  $set.=($i>0?',':'').$columns[$i].'=';
   $set.=($values[$i]===null?'NULL':'"'.$values[$i].'"');
 }
 

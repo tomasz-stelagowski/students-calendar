@@ -48,9 +48,7 @@ switch ($method) {
 $stid = oci_parse($link, $sql);
 
 foreach ($_POST as $postkey => $value) {
-  if(isset($_POST[$key])){
     oci_bind_by_name($stid, ":$postkey", $value);
-  }
 }
 oci_bind_by_name($stid, ":key", $key);
 

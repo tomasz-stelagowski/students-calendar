@@ -5,7 +5,8 @@ define([
 		var model = Backbone.Model.extend({
 			defaults: {
 				name: ""
-			}
+			},
+			idAttribute: "ID"
 		});
 
 		return model;

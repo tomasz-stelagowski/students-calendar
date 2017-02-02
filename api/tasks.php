@@ -34,6 +34,7 @@ switch ($method) {
       case 'PUT':
         //$sql = "BEGIN modify_to_do_item (:key, :DONE); END;";
         $sql = "BEGIN modify_to_do_item (". $key .", ".$_POST['DONE']."); END;";
+        echo $sql;
         break;
       case 'DELETE':
         break;

@@ -23,10 +23,8 @@ switch ($method) {
     $date = $_GET['date'];
     $sql = "select * from view_get_task_list where day = TO_DATE(" . "'" . $date . "', 'YYYY-MM-DD')"; 
     break;
-  case 'PUT':
-    $sql = "update to_do_items set done = 'Y' where id=" . $key; 
-    break;
   case 'POST':
+    $sql = "update to_do_items set done = 'Y' where id=" . $key; 
     break;
   case 'DELETE':
     break;

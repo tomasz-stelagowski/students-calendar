@@ -8,7 +8,8 @@ define([
 	],function($, _, Backbone, Moment){
 		var BaseView = function(options){
 			Moment.locale('pl');
-
+			Backbone.emulateHTTP = true;
+			
 			Backbone.View.apply(this, [options]);
 		}
 

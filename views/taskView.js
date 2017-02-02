@@ -15,7 +15,7 @@ define([
 					this.model.set("DONE", "Y");
 				}
 				//this.model.save();
-				this.model.destroy();
+				this.model.destroy({data: {ovmethod: 'DELETE' }});
 			},
 			template: _.template(tmpl, {}),
 			initialize: function(){

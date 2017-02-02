@@ -24,7 +24,8 @@ define([
 					}),
 					data: {
 						date: this.day.format("YYYY-MM-DD")
-					}
+					},
+					reset: true
 				})
 				//	this.initTasksViews();
 			},

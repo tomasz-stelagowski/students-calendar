@@ -30,7 +30,7 @@ define([
 				this.date = options.date;
 				delete 	this.tasksDisplayView;
 				this.$("#my_tasks-area").html("");
-				this.tasksDisplayView = new TasksDisplayView({el: this.$("#my_tasks-area"), day: Moment(this.date, 'DD-MM-YYYY').format("DD-MM-YYYY")});
+				this.initTaskDisplayView();
 			},
 			removeElements: function(){
 				this.tasksDisplayView && this.tasksDisplayView.remove();

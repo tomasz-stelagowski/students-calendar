@@ -41,7 +41,7 @@ define([
 					},
 					reset: true
 				})
-			}
+			},
 
 			render: function(){
 				this.$el.html("");

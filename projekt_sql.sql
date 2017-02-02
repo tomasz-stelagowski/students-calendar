@@ -260,6 +260,14 @@ BEGIN
 END;
 /
 
+--create task
+CREATE OR REPLACE PROCEDURE modify_to_do_item (idin IN INT, donein IN VARCHAR)
+IS
+	last_single_item INT;
+BEGIN
+	UPDATE to_do_items SET DONE = donein WHERE ID = idin;
+END;
+/
 
 --Zmiana dnia listy zadan
 CREATE OR REPLACE PROCEDURE change_day_of_to_do_list (now_day IN DATE, new_day IN DATE)

@@ -32,7 +32,7 @@ switch ($method) {
   case 'POST':
     switch($overMethod) {
       case 'PUT':
-        $sql = "update to_do_items set $set where id=$key";
+        $sql = "EXECUTE modify_to_do_item ($key, {$_POST['DONE']})";
         echo $sql;
         break;
       case 'DELETE':

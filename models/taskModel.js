@@ -3,7 +3,7 @@ define([
 	], function(BaseModel){
 
 		var model = BaseModel.extend({
-			localeUrl: "tasks/php",
+			localeUrl: "tasks.php",
 			defaults: {
 				NAME: ""
 			},

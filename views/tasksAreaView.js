@@ -7,11 +7,8 @@ define([
 	],function(baseView, Moment, TasksDisplayView, tmpl, DateNavigation){
 		var myView = baseView.extend({
 			initialize: function(){
-				this.listenTo(this.dateNavigation, "date:change", function(options){
-
-				});
-
-				
+				this.date = Moment().format('DD-MM-YYYY');
+				this.listenTo(this.dateNavigation, "date:change", reRenderTaskList.bind(this));
 			},
 			dateNavigation: new DateNavigation(),
 			render: function(){
@@ -21,9 +18,19 @@ define([
 
 				this.dateNavigation.setElement(this.$("#my_tasks-call-nac")).render();
 			},
+			reRenderTaskList: function(options){
+				this.date = options.date;
+
+				this.tasksDisplayView && this.tasksDisplayView.remove();
+				this.$("#my_tasks-area").html("");
+				this.tasksDisplayView = new TasksDisplayView({el: this.$("#my_tasks-area"), day: Moment(this.date, 'DD-MM-YYYY').format("DD-MM-YYYY")});
+			},
+			removeElements: function(){
+				this.tasksDisplayView && this.tasksDisplayView.remove();
+				this.dateNavigation && this.dateNavigation.remove();
+			},
 			remove: function(){
-				this.tasksDisplayView.remove();
-				this.dateNavigation.remove();
+				this.removeElements();
 				Backbone.View.prototype.remove.call(this);
 			}
 

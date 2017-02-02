@@ -32,7 +32,8 @@ switch ($method) {
   case 'POST':
     switch($overMethod) {
       case 'PUT':
-        $sql = "BEGIN modify_to_do_item (:key, :DONE); END;";
+        //$sql = "BEGIN modify_to_do_item (:key, :DONE); END;";
+        $sql = "BEGIN modify_to_do_item (5, 'Y'); END;";
         echo $sql;
         break;
       case 'DELETE':
@@ -47,7 +48,7 @@ switch ($method) {
 
 $stid = oci_parse($link, $sql);
 
-foreach ($_POST as $postkey => $value) {
+/*foreach ($_POST as $postkey => $value) {
     oci_bind_by_name($stid, ":$postkey", $value, 32);
 }
 oci_bind_by_name($stid, ":key", $key, 32);
@@ -55,7 +56,7 @@ oci_bind_by_name($stid, ":key", $key, 32);
 $error = oci_error($stid);
 if($method == 'POST' && $error){
   print_r($error);
-}
+}*/
 
 oci_execute($stid);
 

@@ -5,7 +5,6 @@ define([
 		var myView = baseView.extend({
 			
 			events: {
-				"click": "closePopup"
 			},
 			closePopup: function(){
 				this.closeCallback();
@@ -19,6 +18,7 @@ define([
 			},
 			render: function(){
 				this.$el.html(this.template());
+				this.$("[close]").on("click", this.closePopup.bind(this));
 				return this;
 			}
 		});

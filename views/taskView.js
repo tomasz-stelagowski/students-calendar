@@ -14,7 +14,7 @@ define([
 				} else {
 					this.model.set("DONE", "Y");
 				}
-				this.model.save(null, {type: 'POST'});
+				this.model.save();
 			},
 			template: _.template(tmpl, {}),
 			initialize: function(){
